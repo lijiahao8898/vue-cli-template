@@ -27,3 +27,26 @@ npm run lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+## element-ui
+
+### 按需加载
+```textmate
+npm install babel-plugin-component -D
+```
+```js
+{
+  "presets": [["es2015", { "modules": false }]],
+  "plugins": [
+    [
+      "component",
+      {
+        "libraryName": "element-ui",
+        "styleLibraryName": "theme-chalk"
+      }
+    ]
+  ]
+}
+```
+
+See [element-ui](https://element.eleme.cn/#/zh-CN)
