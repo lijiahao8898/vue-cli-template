@@ -4,8 +4,26 @@ found in element-ui/packages/theme-chalk/src/common/var.scss.
 For example, to overwrite the theme color:
 */
 $--color-primary: teal;
-$--input-height: 32px !default;
-$--button-padding-vertical: 8px !default;
+$--color-text-primary: #303133 !default;
+$--color-white: #FFFFFF !default;
+$--color-info: #909399 !default;
+$--color-primary-light-9: mix($--color-white, $--color-primary, 90%) !default; /* ecf5ff */
+
+/* input
+---------------------------------*/
+$--input-height: 36px !default;
+
+/* button
+---------------------------------*/
+$--button-padding-vertical: 10px !default;
+
+/* menu
+---------------------------------*/
+/// color||Color|0
+$--menu-item-font-color: rgb(191, 203, 217) !default;
+/// color||Color|0
+$--menu-background-color: rgb(48, 65, 86) !default;
+$--menu-item-hover-fill: #263445 !default;
 
 /* icon font path, required */
 $--font-path: '~element-ui/lib/theme-chalk/fonts';

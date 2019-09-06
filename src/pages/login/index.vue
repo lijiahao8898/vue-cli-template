@@ -46,7 +46,8 @@
     },
     methods: {
       onSubmit () {
-        console.log(112);
+        // todo 登录逻辑
+        this.$router.push('./index');
       },
     }
   };

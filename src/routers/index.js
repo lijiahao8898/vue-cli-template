@@ -11,6 +11,13 @@ const router = new VueRouter({
     meta: {
       title: '登录'
     }
+  }, {
+    path: '/index',
+    component: () => import('@/pages/home/index'),
+    name: 'index',
+    meta: {
+      title: '首页'
+    }
   }]
 });
 
