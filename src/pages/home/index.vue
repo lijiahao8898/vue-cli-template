@@ -1,10 +1,16 @@
 <template>
   <el-container>
     <sider-component></sider-component>
-    <div style="margin-left: 220px; width: 100%;">
+    <div :style="{marginLeft: isCollapse ? '65px' : '200px', width: '100%', transition: 'all .45s'}">
       <el-container>
         <!-- header无法单独拆分 直接在el-container下 会增加class is-vertical-->
         <el-header class="header" style="text-align: right; font-size: 12px; height: 45px;">
+          <div class="hamburger" @click="hideSidebar" v-if="isCollapse">
+            <i class="el-icon-s-unfold"></i>
+          </div>
+          <div class="hamburger" @click="showSidebar" v-else>
+            <i class="el-icon-s-fold"></i>
+          </div>
           <el-dropdown>
             <i class="el-icon-setting" style="margin-right: 15px"></i>
             <el-dropdown-menu slot="dropdown">
@@ -39,8 +45,22 @@
     },
     data () {
       return {
-        tableData: []
+        tableData: [],
+
       };
+    },
+    computed: {
+      isCollapse () {
+        return this.$store.state.system.isCollapse;
+      }
+    },
+    methods: {
+      hideSidebar () {
+        this.$store.commit('hideSidebar', false);
+      },
+      showSidebar () {
+        this.$store.commit('hideSidebar', true);
+      }
     }
   };
 </script>
@@ -57,6 +77,12 @@
     line-height: 45px;
     height: 45px;
     width: 100%;
+  }
+
+  .hamburger {
+    position: absolute;
+    font-size: 20px;
+    cursor: pointer;
   }
 </style>
 

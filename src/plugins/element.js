@@ -19,6 +19,8 @@ import {
   Submenu,
   Table,
   TableColumn,
+  RadioGroup,
+  RadioButton,
 } from 'element-ui';
 import '../element-variables.scss';
 
@@ -41,3 +43,5 @@ Vue.use(MenuItemGroup);
 Vue.use(Submenu);
 Vue.use(Table);
 Vue.use(TableColumn);
+Vue.use(RadioGroup);
+Vue.use(RadioButton);

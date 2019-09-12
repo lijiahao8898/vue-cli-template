@@ -9,7 +9,7 @@
     name: 'app',
     created () {
       this.$nextTick(() => {
-        console.log(this.$route);
+        // console.log(this.$route);
       });
     }
   };
