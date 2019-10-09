@@ -5,10 +5,10 @@
       <el-container>
         <!-- header无法单独拆分 直接在el-container下 会增加class is-vertical-->
         <el-header class="header" style="text-align: right; font-size: 12px; height: 45px;">
-          <div class="hamburger" @click="hideSidebar" v-if="isCollapse">
+          <div class="hamburger" @click="toggleSidebar" v-if="isCollapse">
             <i class="el-icon-s-unfold"></i>
           </div>
-          <div class="hamburger" @click="showSidebar" v-else>
+          <div class="hamburger" @click="toggleSidebar" v-else>
             <i class="el-icon-s-fold"></i>
           </div>
           <el-dropdown>
@@ -55,11 +55,8 @@
       }
     },
     methods: {
-      hideSidebar () {
-        this.$store.commit('hideSidebar', false);
-      },
-      showSidebar () {
-        this.$store.commit('hideSidebar', true);
+      toggleSidebar () {
+        this.$store.commit('toggleSidebar', !this.isCollapse);
       }
     }
   };

@@ -1,15 +1,12 @@
 let state = {
-  isCollapse: false   // 显示和隐藏左侧菜单栏
+  isCollapse: localStorage.getItem('isCollapse') === 'true'   // 显示和隐藏左侧菜单栏
 };
 
 const mutations = {
-  hideSidebar (state, nextState) {
+  toggleSidebar (state, nextState) {
     state.isCollapse = nextState;
+    localStorage.setItem('isCollapse', nextState);
   },
-
-  showSidebar (state) {
-    console.log(state);
-  }
 };
 
 export default {
