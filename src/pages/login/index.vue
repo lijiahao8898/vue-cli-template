@@ -2,17 +2,17 @@
   <div class="login" ref="login">
     <div class="login-form">
       <div class="login-title">登录</div>
-      <el-form>
-        <el-form-item prop="pass">
+      <el-form :model="params" :rules="rules" ref="loginForm">
+        <el-form-item prop="username">
           <el-input
-            type="password"
-            v-model="params.account"
+            type="text"
+            v-model="params.username"
             prefix-icon="el-icon-user"
             autocomplete="off"
             placeholder="请输入账号"
           ></el-input>
         </el-form-item>
-        <el-form-item prop="checkPass">
+        <el-form-item prop="password">
           <el-input
             type="password"
             v-model="params.password"
@@ -30,12 +30,22 @@
 </template>
 
 <script>
+  import Api from '@/api';
+  import cookies from 'js-cookie';
   export default {
     data () {
       return {
         params: {
-          account: '',
+          username: '',
           password: '',
+        },
+        rules: {
+          username: [
+            { required: true, message: '请输入账号', trigger: 'blur' },
+          ],
+          password: [
+            { required: true, message: '请输入密码', trigger: 'blur' },
+          ]
         }
       };
     },
@@ -47,7 +57,23 @@
     methods: {
       onSubmit () {
         // todo 登录逻辑
-        this.$router.push('./index');
+        this.$refs['loginForm'].validate(async (valid) => {
+          if (valid) {
+            this.$router.push('./index');
+            return ;
+            const data = await Api('post', 'authLogin', {
+              ...this.params
+            });
+            if(data.success) {
+              console.log(data);
+              // todo 存入cookie
+              this.$router.push('./index');
+            }
+          } else {
+            console.log('error submit!!');
+            return false;
+          }
+        });
       },
     }
   };

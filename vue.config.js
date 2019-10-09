@@ -8,5 +8,16 @@ module.exports = {
     config.resolve.alias
       .set('@', resolve('src'))
       .set('assets', resolve('src/assets'));
+  },
+  devServer: {
+    proxy: {
+      '/api': {
+        target: '',
+        changeOrigin: true,
+        pathRewrite: {
+          "^/api": ""
+        }
+      }
+    }
   }
 };
