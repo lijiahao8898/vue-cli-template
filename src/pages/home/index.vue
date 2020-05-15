@@ -1,27 +1,28 @@
 <template>
   <el-container>
     <sider-component></sider-component>
-    <div :style="{marginLeft: isCollapse ? '65px' : '200px', width: '100%', transition: 'all .45s'}">
       <el-container>
         <!-- header无法单独拆分 直接在el-container下 会增加class is-vertical-->
-        <el-header class="header" style="text-align: right; font-size: 12px; height: 45px;">
-          <div class="hamburger" @click="toggleSidebar" v-if="isCollapse">
-            <i class="el-icon-s-unfold"></i>
+        <el-header class="header" style="text-align: right; font-size: 14px; height: 45px;">
+          <div class="header-wrapper" :style="isCollapseStyle">
+            <div class="hamburger" @click="toggleHamburger" v-if="isCollapse">
+              <i class="el-icon-s-unfold"></i>
+            </div>
+            <div class="hamburger" @click="toggleHamburger" v-else>
+              <i class="el-icon-s-fold"></i>
+            </div>
+            <el-dropdown>
+              <i class="el-icon-setting" style="margin-right: 15px"></i>
+              <el-dropdown-menu slot="dropdown">
+                <el-dropdown-item>查看</el-dropdown-item>
+                <el-dropdown-item>新增</el-dropdown-item>
+                <el-dropdown-item>删除</el-dropdown-item>
+              </el-dropdown-menu>
+            </el-dropdown>
+            <span>王小虎</span>
           </div>
-          <div class="hamburger" @click="toggleSidebar" v-else>
-            <i class="el-icon-s-fold"></i>
-          </div>
-          <el-dropdown>
-            <i class="el-icon-setting" style="margin-right: 15px"></i>
-            <el-dropdown-menu slot="dropdown">
-              <el-dropdown-item>查看</el-dropdown-item>
-              <el-dropdown-item>新增</el-dropdown-item>
-              <el-dropdown-item>删除</el-dropdown-item>
-            </el-dropdown-menu>
-          </el-dropdown>
-          <span>王小虎</span>
         </el-header>
-        <el-main>
+        <el-main :style="isCollapseStyle">
           <el-table :data="tableData">
             <el-table-column prop="date" label="日期" width="140">
             </el-table-column>
@@ -32,31 +33,34 @@
           </el-table>
         </el-main>
       </el-container>
-    </div>
   </el-container>
 </template>
 
 <script>
   import siderComponent from '@/components/sider';
+  import {mapState, mapMutations} from 'vuex';
 
   export default {
     components: {
-      siderComponent: siderComponent
+      siderComponent
     },
     data () {
       return {
-        tableData: [],
-
+        tableData: []
       };
     },
     computed: {
-      isCollapse () {
-        return this.$store.state.system.isCollapse;
-      }
+      ...mapState({
+        isCollapse: state => state.system.isCollapse
+      }),
+      isCollapseStyle () {
+        return {marginLeft: this.isCollapse ? '65px' : '200px', transition: 'all .45s'}
+      },
     },
     methods: {
-      toggleSidebar () {
-        this.$store.commit('toggleSidebar', !this.isCollapse);
+      ...mapMutations(['toggleSidebar']),
+      toggleHamburger () {
+        this.toggleSidebar(!this.isCollapse);
       }
     }
   };

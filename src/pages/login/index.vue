@@ -80,8 +80,9 @@
 </script>
 
 <style lang="scss" type="text/scss" scoped>
+  @import "assets/style/config.scss";
   .login {
-    background: teal;
+    background: $color-primary;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -96,7 +97,7 @@
       background: #fff;
       text-align: center;
       margin: 0 auto;
-      padding: 15px;
+      padding: 10px;
       box-sizing: border-box;
       border-radius: 4px;
     }

@@ -12,7 +12,7 @@ module.exports = {
   devServer: {
     proxy: {
       '/api': {
-        target: '',
+        target: 'http://manager-master.showcode.info',
         changeOrigin: true,
         pathRewrite: {
           "^/api": ""

@@ -4,7 +4,7 @@ let state = {
 
 const mutations = {
   toggleSidebar (state, nextState) {
-    state.isCollapse = nextState;
+    state = Object.assign(state, {isCollapse: nextState});
     localStorage.setItem('isCollapse', nextState);
   },
 };

@@ -36,15 +36,16 @@
 </template>
 
 <script>
+  import {mapState} from 'vuex'
   export default {
     data () {
       return {
       };
     },
     computed: {
-      isCollapse () {
-        return this.$store.state.system.isCollapse;
-      }
+      ...mapState({
+        isCollapse: state => state.system.isCollapse,
+      })
     },
     methods: {
       handleOpen (key, keyPath) {
