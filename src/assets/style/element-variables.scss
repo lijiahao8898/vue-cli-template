@@ -20,10 +20,17 @@ $--button-padding-vertical: 10px !default;
 /* menu
 ---------------------------------*/
 /// color||Color|0
-$--menu-item-font-color: rgb(191, 203, 217) !default;
+$--menu-item-font-color: #333 !default;
 /// color||Color|0
-$--menu-background-color: rgb(48, 65, 86) !default;
-$--menu-item-hover-fill: #263445 !default;
+$--menu-background-color: #F5F6F9 !default;
+$--menu-item-hover-fill: #F5F6F9 !default;
+
+.el-menu {
+  .el-menu-item.is-active {
+    border-left: 3px solid #008b7d;
+    background-color: #F7FCFC;
+  }
+}
 
 /* icon font path, required */
 $--font-path: '~element-ui/lib/theme-chalk/fonts';

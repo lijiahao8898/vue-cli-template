@@ -3,22 +3,31 @@ import VueRouter from 'vue-router';
 
 Vue.use(VueRouter);
 
-const router = new VueRouter({
-  routes: [{
+const routes = [{
     path: '/',
+    component: () => import('@/pages/index'),
+    name: 'index',
+    meta: {
+        title: '首页'
+    },
+    redirect: '/index',
+    children: [{
+        path: '/index',
+        component: () => import('@/pages/home/index'),
+        name: 'home',
+        meta: {
+            title: '首页'
+        },
+    }]
+}, {
+    path: '/login',
     component: () => import('@/pages/login/index'),
     name: 'login',
     meta: {
-      title: '登录'
+        title: '登录'
     }
-  }, {
-    path: '/index',
-    component: () => import('@/pages/home/index'),
-    name: 'index',
-    meta: {
-      title: '首页'
-    }
-  }]
-});
+}]
 
-export default router;
+export default new VueRouter({
+    routes
+});

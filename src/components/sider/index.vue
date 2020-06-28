@@ -1,5 +1,9 @@
 <template>
   <div class="sidebar-container">
+    <div class="sidebar-header" :class="{'sidebar-header-is-collapse': isCollapse}">
+      <img class="sidebar-header__logo" src="../../assets/images/logo.png">
+      <span class="sidebar-header__title">技术有限公司</span>
+    </div>
     <el-menu default-active="1-4-1" class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose" :collapse="isCollapse">
       <el-submenu index="1">
         <template slot="title">
@@ -64,11 +68,12 @@
   }
 
   .el-menu-vertical-demo {
-    height: 100%;
+    height: calc(100% - 60px);
   }
 </style>
 
 <style type="text/scss" lang="scss" scoped>
+  @import "@/assets/style/config.scss";
   .sidebar{
     &-container {
       position: absolute;
@@ -76,6 +81,41 @@
       top: 0;
       bottom: 0;
       height: 100%;
+      box-shadow: 2px 0 6px rgba(0, 25, 56, 0.08);
+    }
+    &-header {
+      background: $--menu-background-color;
+      display: flex;
+      width: 200px;
+      /*border-bottom: 1px solid rgba(0,0,0,0.2);*/
+      transition: all .45s;
+      &.sidebar-header-is-collapse {
+        width: 64px;
+        .sidebar-header__logo {
+          margin-left: 12px;
+        }
+        .sidebar-header__title {
+          opacity: 0;
+        }
+      }
+      &__logo {
+        width: 40px;
+        height: 40px;
+        margin-left: 20px;
+        margin-top: 10px;
+        transition: margin-left .3s .45s;
+      }
+      &__title {
+        font-size: 18px;
+        height: 60px;
+        line-height: 60px;
+        color: $color-white;
+        display: inline-block;
+        flex: 1;
+        opacity: 1;
+        transition: opacity .3s;
+        font-weight: 500;
+      }
     }
   }
 </style>

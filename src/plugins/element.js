@@ -21,8 +21,9 @@ import {
   TableColumn,
   RadioGroup,
   RadioButton,
+  Card,
 } from 'element-ui';
-import '../element-variables.scss';
+import '../assets/style/element-variables.scss';
 
 Vue.use(Container);
 Vue.use(Main);
@@ -45,3 +46,4 @@ Vue.use(Table);
 Vue.use(TableColumn);
 Vue.use(RadioGroup);
 Vue.use(RadioButton);
+Vue.use(Card);

@@ -1,30 +1,51 @@
 <template>
   <div class="login" ref="login">
-    <div class="login-form">
-      <div class="login-title">登录</div>
-      <el-form :model="params" :rules="rules" ref="loginForm">
-        <el-form-item prop="username">
-          <el-input
-            type="text"
-            v-model="params.username"
-            prefix-icon="el-icon-user"
-            autocomplete="off"
-            placeholder="请输入账号"
-          ></el-input>
-        </el-form-item>
-        <el-form-item prop="password">
-          <el-input
-            type="password"
-            v-model="params.password"
-            prefix-icon="el-icon-lock"
-            autocomplete="off"
-            placeholder="请输入密码"
-          ></el-input>
-        </el-form-item>
-        <el-form-item>
-          <el-button type="primary" class="login-btn" @click="onSubmit">登录</el-button>
-        </el-form-item>
-      </el-form>
+    <vue-particles
+            color="#fff"
+            :particleOpacity="0.5"
+            :particlesNumber="30"
+            shapeType="star"
+            :particleSize="4"
+            linesColor="#fff"
+            :linesWidth="1"
+            :lineLinked="true"
+            :lineOpacity="0.2"
+            :linesDistance="100"
+            :moveSpeed="1"
+            :hoverEffect="true"
+            hoverMode="grab"
+            :clickEffect="true"
+            clickMode="push"
+            class="particles"
+    >
+    </vue-particles>
+    <div class="login-container">
+      <div class="login-title">技术有限公司</div>
+      <div class="login-form">
+        <el-form :model="params" :rules="rules" ref="loginForm">
+          <el-form-item prop="username">
+            <el-input
+                    type="text"
+                    v-model="params.username"
+                    prefix-icon="el-icon-user"
+                    autocomplete="off"
+                    placeholder="请输入账号"
+            ></el-input>
+          </el-form-item>
+          <el-form-item prop="password">
+            <el-input
+                    type="password"
+                    v-model="params.password"
+                    prefix-icon="el-icon-lock"
+                    autocomplete="off"
+                    placeholder="请输入密码"
+            ></el-input>
+          </el-form-item>
+          <el-form-item>
+            <el-button type="primary" class="login-btn" @click="onSubmit">登 录</el-button>
+          </el-form-item>
+        </el-form>
+      </div>
     </div>
   </div>
 </template>
@@ -36,8 +57,8 @@
     data () {
       return {
         params: {
-          username: '',
-          password: '',
+          username: 'admin',
+          password: 'admin',
         },
         rules: {
           username: [
@@ -81,15 +102,24 @@
 
 <style lang="scss" type="text/scss" scoped>
   @import "assets/style/config.scss";
+  .particles {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+  }
   .login {
-    background: $color-primary;
+    background: linear-gradient($color-primary, #008B7D);;
     display: flex;
     justify-content: center;
     align-items: center;
 
     &-title {
-      font-size: 24px;
-      margin-bottom: 15px;
+      font-size: 38px;
+      margin-bottom: 35px;
+      color: #fff;
     }
 
     &-form {
@@ -99,11 +129,12 @@
       margin: 0 auto;
       padding: 10px;
       box-sizing: border-box;
-      border-radius: 4px;
+      border-radius: 8px;
     }
 
     &-btn {
       margin-top: 50px;
+        font-size: 18px;
       width: 100%;
     }
   }
