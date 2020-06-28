@@ -4,7 +4,14 @@
       <img class="sidebar-header__logo" src="../../assets/images/logo.png">
       <span class="sidebar-header__title">技术有限公司</span>
     </div>
-    <el-menu default-active="1-4-1" class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose" :collapse="isCollapse">
+    <el-menu default-active="1-4-1"
+             class="el-menu-vertical-demo"
+             @open="handleOpen"
+             @close="handleClose"
+             :collapse="isCollapse"
+             background-color="#F5F6F9"
+             text-color="rgba(46, 52, 51, 1)"
+    >
       <el-submenu index="1">
         <template slot="title">
           <i class="el-icon-location"></i>

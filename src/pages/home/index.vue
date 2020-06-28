@@ -1,5 +1,5 @@
 <template>
-    <el-card>
+    <el-card shadow="never">
         <zy-item label="标签">你好世界！</zy-item>
         <el-table :data="tableData">
             <el-table-column prop="date" label="日期" width="140">
