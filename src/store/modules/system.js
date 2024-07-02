@@ -1,5 +1,6 @@
 let state = {
-  isCollapse: localStorage.getItem('isCollapse') === 'true'   // 显示和隐藏左侧菜单栏
+  isCollapse: localStorage.getItem('isCollapse') === 'true',   // 显示和隐藏左侧菜单栏
+  systemName: '至元数据科技有限公司'
 };
 
 const mutations = {
@@ -10,6 +11,7 @@ const mutations = {
 };
 
 export default {
+  namespaced: true,
   state,
   mutations
 };

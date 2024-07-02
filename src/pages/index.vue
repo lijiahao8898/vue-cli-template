@@ -1,6 +1,6 @@
 <template>
     <el-container>
-        <sider-component></sider-component>
+        <side-component></side-component>
         <el-container>
             <div class="container-wrapper">
                 <header-component></header-component>
@@ -13,29 +13,29 @@
 </template>
 
 <script>
-    import headerComponent from '@/components/header'
-    import siderComponent from '@/components/sider';
-    import {mapState} from "vuex";
+import headerComponent from '@/components/layout/header';
+import sideComponent from '@/components/layout/sider';
+import {mapState} from "vuex";
 
-    export default {
-        components: {
-            siderComponent,
-            headerComponent
+export default {
+    components: {
+        sideComponent,
+        headerComponent
+    },
+    data() {
+        return {
+            tableData: []
+        };
+    },
+    computed: {
+        ...mapState({
+            isCollapse: state => state.system.isCollapse
+        }),
+        isCollapseStyle() {
+            return {marginLeft: this.isCollapse ? '65px' : '200px', transition: 'all .45s'};
         },
-        data() {
-            return {
-                tableData: []
-            };
-        },
-        computed: {
-            ...mapState({
-                isCollapse: state => state.system.isCollapse
-            }),
-            isCollapseStyle() {
-                return {marginLeft: this.isCollapse ? '65px' : '200px', transition: 'all .45s'}
-            },
-        }
-    };
+    }
+};
 </script>
 
 <style type="text/scss" lang="scss" scoped>

@@ -1,27 +1,32 @@
 import Vue from 'vue';
 import {
-  Container,
-  Main,
-  Aside,
-  Button,
-  Form,
-  FormItem,
-  Select,
-  Input,
-  Icon,
-  Header,
-  Dropdown,
-  DropdownMenu,
-  DropdownItem,
-  Menu,
-  MenuItem,
-  MenuItemGroup,
-  Submenu,
-  Table,
-  TableColumn,
-  RadioGroup,
-  RadioButton,
-  Card,
+    Container,
+    Main,
+    Aside,
+    Button,
+    Form,
+    FormItem,
+    Select,
+    Input,
+    Icon,
+    Header,
+    Dropdown,
+    DropdownMenu,
+    DropdownItem,
+    Menu,
+    MenuItem,
+    MenuItemGroup,
+    Submenu,
+    Table,
+    TableColumn,
+    RadioGroup,
+    RadioButton,
+    Card,
+    Pagination,
+    Progress,
+    Tag,
+    Loading,
+    Dialog
 } from 'element-ui';
 import '../assets/style/element-variables.scss';
 
@@ -47,3 +52,8 @@ Vue.use(TableColumn);
 Vue.use(RadioGroup);
 Vue.use(RadioButton);
 Vue.use(Card);
+Vue.use(Pagination);
+Vue.use(Progress);
+Vue.use(Tag);
+Vue.use(Loading);
+Vue.use(Dialog);

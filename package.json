@@ -1,5 +1,5 @@
 {
-  "name": "vue-template",
+  "name": "license-system",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -7,19 +7,20 @@
     "dev": "npm run serve",
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "fix": "npx eslint --fix --ext .js,.ts,.vue src"
   },
   "dependencies": {
-    "axios": "^0.19.0",
-    "core-js": "^2.6.5",
-    "element-ui": "^2.13.1",
+    "axios": "^1.7.2",
+    "core-js": "^2.6.12",
+    "element-ui": "^2.15.14",
     "js-cookie": "^2.2.1",
-    "qs": "^6.9.0",
-    "vue": "^2.6.10",
-    "vue-router": "^3.1.2",
-    "vuex": "^3.1.1",
-    "zy-libraries": "^0.1.0",
-    "vue-particles": "^1.0.9"
+    "qs": "^6.12.2",
+    "vue": "^2.6.14",
+    "vue-particles": "^1.0.9",
+    "vue-router": "^3.6.5",
+    "vuex": "^3.6.2",
+    "zy-libraries": "^0.7.7"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.10.0",
@@ -32,7 +33,7 @@
     "node-sass": "^4.14.1",
     "sass-loader": "^7.3.1",
     "vue-cli-plugin-element": "^1.0.1",
-    "vue-template-compiler": "^2.6.10"
+    "vue-template-compiler": "^2.6.14"
   },
   "eslintConfig": {
     "root": true,
@@ -60,30 +61,31 @@
         "always"
       ],
       "semi": [
-        2,
+        0,
         "always"
       ],
       "no-console": 0,
+      "no-unused-vars": "off",
       "generator-star-spacing": "off",
       "no-unused-expressions": "off",
       "vue/script-indent": [
         "error",
-        2,
+        4,
         {
-          "baseIndent": 1
-        }
-      ],
-      "overrides": [
-        {
-          "files": [
-            "*.vue"
-          ],
-          "rules": {
-            "indent": "off"
-          }
+          "baseIndent": 0
         }
       ]
     },
+    "overrides": [
+      {
+        "files": [
+          "*.vue"
+        ],
+        "rules": {
+          "indent": "off"
+        }
+      }
+    ],
     "parserOptions": {
       "parser": "babel-eslint"
     }
@@ -93,8 +95,15 @@
       "autoprefixer": {}
     }
   },
+  "lint-staged": {
+    "*.{js,ts,vue}": [
+      "eslint --fix"
+    ]
+  },
   "browserslist": [
     "> 1%",
     "last 2 versions"
-  ]
+  ],
+  "description": "project",
+  "author": "author"
 }

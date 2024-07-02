@@ -5,14 +5,14 @@
 </template>
 
 <script>
-  export default {
+export default {
     name: 'app',
     created () {
-      this.$nextTick(() => {
+        this.$nextTick(() => {
         // console.log(this.$route);
-      });
+        });
     }
-  };
+};
 </script>
 
 <style>

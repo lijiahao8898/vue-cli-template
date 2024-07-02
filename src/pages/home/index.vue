@@ -13,33 +13,29 @@
 </template>
 
 <script>
-  import siderComponent from '@/components/sider';
-  import {mapState, mapMutations} from 'vuex';
+import {mapState, mapMutations} from 'vuex';
 
-  export default {
-    components: {
-      siderComponent
-    },
+export default {
     data() {
-      return {
-        tableData: []
-      };
+        return {
+            tableData: []
+        };
     },
     computed: {
-      ...mapState({
-        isCollapse: state => state.system.isCollapse
-      }),
-      isCollapseStyle() {
-        return {marginLeft: this.isCollapse ? '65px' : '200px', transition: 'all .45s'}
-      },
+        ...mapState({
+            isCollapse: state => state.system.isCollapse
+        }),
+        isCollapseStyle() {
+            return {marginLeft: this.isCollapse ? '65px' : '200px', transition: 'all .45s'};
+        },
     },
     methods: {
-      ...mapMutations(['toggleSidebar']),
-      toggleHamburger() {
-        this.toggleSidebar(!this.isCollapse);
-      }
+        ...mapMutations(['toggleSidebar']),
+        toggleHamburger() {
+            this.toggleSidebar(!this.isCollapse);
+        }
     }
-  };
+};
 </script>
 
 <style type="text/scss" lang="scss" scoped>
